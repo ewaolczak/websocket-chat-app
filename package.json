@@ -1,0 +1,9 @@
+{
+  "name": "websocket-chat-app",
+  "version": "1.0.0",
+  "description": "simple chat app using websocket",
+  "main": "app.js",
+  "repository": "git@github.com:ewaolczak/websocket-chat-app.git",
+  "author": "Ewa Olczak <ewa.olczak@gmail.com>",
+  "license": "MIT"
+}
