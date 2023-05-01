@@ -22,5 +22,10 @@ const login = (e) => {
   }
 };
 
+const sendMessage = (e) => {
+  e.preventDefault();
+};
+
 // Event listeners
 loginForm.addEventListener('submit', (e) => login(e));
+addMessageForm.addEventListener('submit', (e) => sendMessage(e));
