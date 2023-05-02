@@ -1,3 +1,7 @@
+//Socket.IO
+const socket = io();
+socket.on('message', ({ author, content }) => addMessage(author, content));
+
 // References to HTML elements
 const loginForm = document.querySelector('#welcome-form');
 const messagesSection = document.querySelector('#messages-section');
@@ -24,9 +28,13 @@ const login = (e) => {
 
 const sendMessage = (e) => {
   e.preventDefault();
-  if (messageContentInput.value.length > 0) {
-    addMessage(userName, messageContentInput.value);
-    messageContentInput.value = '';
+
+  let messageContent = messageContentInput.value;
+
+  if (messageContent.length > 0) {
+    addMessage(userName, messageContent);
+    socket.emit('message', { author: userName, content: messageContent });
+    messageContent = '';
   } else {
     alert('Please write a message');
   }
