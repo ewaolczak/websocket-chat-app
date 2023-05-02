@@ -5,5 +5,12 @@
   "main": "index.js",
   "repository": "git@github.com:ewaolczak/websocket-chat-app.git",
   "author": "Ewa Olczak <ewa.olczak@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.17.1",
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
 }
