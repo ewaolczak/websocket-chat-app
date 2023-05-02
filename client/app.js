@@ -24,6 +24,26 @@ const login = (e) => {
 
 const sendMessage = (e) => {
   e.preventDefault();
+  if (messageContentInput.value.length > 0) {
+    addMessage(userName, messageContentInput.value);
+    messageContentInput.value = '';
+  } else {
+    alert('Please write a message');
+  }
+};
+
+const addMessage = (author, content) => {
+  const message = document.createElement('li');
+  message.classList.add('message');
+  message.classList.add('message--received');
+  if (author === userName) {
+    message.classList.add('message--self');
+  }
+  message.innerHTML = `
+  <h3 class="message__author">${author === userName ? 'You' : author}</h3>
+  <div class="message__content">${content}</div>
+  `;
+  messagesList.appendChild(message);
 };
 
 // Event listeners
