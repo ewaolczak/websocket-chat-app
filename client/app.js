@@ -1,5 +1,7 @@
-//Socket.IO
+// Configure Socket.IO
 const socket = io();
+
+// Socket listeners
 socket.on('message', ({ author, content }) => addMessage(author, content));
 
 // References to HTML elements
@@ -34,7 +36,7 @@ const sendMessage = (e) => {
   if (messageContent.length > 0) {
     addMessage(userName, messageContent);
     socket.emit('message', { author: userName, content: messageContent });
-    messageContent = '';
+    messageContentInput.value = ''; // Dlaczego jak tutaj użyhę messageContent to nie działa?
   } else {
     alert('Please write a message');
   }
